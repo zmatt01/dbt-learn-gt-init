@@ -4,4 +4,4 @@ select
         order_date,
         status
 
-    from bronze.jaffle.orders
+    from raw.jaffle.orders

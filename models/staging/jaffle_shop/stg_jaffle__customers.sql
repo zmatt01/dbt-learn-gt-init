@@ -3,4 +3,4 @@ select
         first_name,
         last_name
 
-    from bronze.jaffle.customers
+    from raw.jaffle.customers

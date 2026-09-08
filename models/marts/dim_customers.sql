@@ -1,23 +1,18 @@
+{{ 
+    config(
+        static_analysis='strict'
+    )
+}}
+
 with customers as (
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
-
-    from bronze.jaffle.customers
+    select * from {{ ref('stg_jaffle__customers') }}
 
 ),
 
 orders as (
 
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from bronze.jaffle.orders
+    select * from {{ ref('stg_jaffle__orders') }}
 
 ),
 

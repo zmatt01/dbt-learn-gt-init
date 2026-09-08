@@ -1,9 +1,9 @@
-select
-        id as payment_id,
-        orderid as order_id,
-        paymentmethod as payment_method,
+SELECT
+        id AS payment_id,
+        orderid AS order_id,
+        paymentmethod AS payment_method,
         status,
-        amount / 100 as amount,
-        created as created_at
+        amount / 100 AS amount,
+        created AS created_at
 
-    from raw.stripe.payments
+    FROM raw.stripe.payments

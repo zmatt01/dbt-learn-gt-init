@@ -31,7 +31,6 @@ customer_orders AS (
 
 ),
 
-
 final AS (
 
     SELECT
@@ -41,7 +40,7 @@ final AS (
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
         COALESCE(customer_orders.number_of_orders, 0) AS number_of_orders,
-        COALESCE(customer_orders.lifetime_value, 0) AS lifetime_value
+        customer_orders.lifetime_value
 
     FROM customers
 

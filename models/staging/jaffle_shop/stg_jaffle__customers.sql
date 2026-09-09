@@ -3,4 +3,4 @@ SELECT
         first_name,
         last_name
 
-    FROM raw.jaffle.customers
+    FROM {{ source('jaffle_raw', 'customers') }}

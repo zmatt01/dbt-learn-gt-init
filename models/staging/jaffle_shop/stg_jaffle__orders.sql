@@ -2,6 +2,7 @@ SELECT
         id AS order_id,
         user_id AS customer_id,
         order_date,
-        status
+        status,
+        _etl_timestamp
 
-    FROM raw.jaffle.orders
+    FROM {{ source('jaffle_raw', 'orders') }}

@@ -1,5 +1,6 @@
 sources:
   - name: stripe_raw
+    description: Staging model for the Stripe payments table.
     database: raw
     schema: stripe
     tables:

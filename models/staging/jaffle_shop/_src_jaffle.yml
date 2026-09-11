@@ -1,10 +1,19 @@
 sources:
   - name: jaffle_raw
+    description: Raw data from the Jaffle Shop DBT training database stored in Databricks.
     database: raw
     schema: jaffle
     tables:
       - name: customers
+        description: The raw customers table contains information about the customers of the Jaffle Shop.
+        columns:
+          - name: id
+            description: Primary key - renamed to customer_id in the staging model.
+            data_tests:
+              - not_null
+              - unique
       - name: orders
+        description: The raw orders table contains information about the orders placed by customers of the Jaffle Shop.
         config:
           loaded_at_field: _etl_timestamp
           freshness:

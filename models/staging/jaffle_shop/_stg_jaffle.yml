@@ -1,13 +1,30 @@
 models:
   - name: stg_jaffle__customers
+    description: Staging model for the customers table. customer_id is lowest gran.
     columns:
       - name: customer_id
+        description: Primary key
         data_tests:
           - not_null
           - unique
+
   - name: stg_jaffle__orders
+    description: Staging model for the orders table. order_id is lowest gran.
     columns:
       - name: order_id
         data_tests:
           - not_null
           - unique
+      - name: status
+        description: "{{ doc('order_status') }}"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['returned', 'completed', 'shipped', 'placed', 'return_pending']
+      - name: customer_id
+        description: Foreign key to the customers table.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jaffle__customers')
+                field: customer_id
